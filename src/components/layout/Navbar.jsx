@@ -5,6 +5,7 @@ import Button from '../common/Button.jsx';
 import Icon from '../common/Icon.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
 import { useSiteSettings } from '../../hooks/useSiteSettings.js';
+import { uploadUrl } from '../../utils/uploads.js';
 import MobileMenu from './MobileMenu.jsx';
 
 const NAV_LINKS = [
@@ -22,7 +23,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
 
-  const logo = site.logo || '/assets/logo/logo.png';
+  const logo = uploadUrl(site.logo) || '/assets/logo/logo.png';
   const siteName = site.site_name || 'HotelBooking';
 
   const handleLogout = () => {
@@ -77,7 +78,7 @@ export default function Navbar() {
               >
                 {user.avatar ? (
                   <img
-                    src={user.avatar}
+                    src={uploadUrl(user.avatar)}
                     alt={user.full_name}
                     className="h-8 w-8 rounded-full object-cover"
                     onError={(e) => {

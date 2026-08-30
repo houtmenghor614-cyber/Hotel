@@ -1,6 +1,7 @@
 import Icon from '../common/Icon.jsx';
 import Stars from '../common/Stars.jsx';
 import { formatDate } from '../../utils/formatDate.js';
+import { uploadUrl } from '../../utils/uploads.js';
 
 export default function ReviewCard({ review }) {
   const author = review.user;
@@ -11,7 +12,7 @@ export default function ReviewCard({ review }) {
         <div className="flex items-center gap-3">
           {author?.avatar ? (
             <img
-              src={author.avatar}
+              src={uploadUrl(author.avatar)}
               alt={author.full_name}
               className="h-10 w-10 rounded-full object-cover"
               onError={(e) => {

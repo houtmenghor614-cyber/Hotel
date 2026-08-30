@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../common/Icon.jsx';
 import { useSiteSettings } from '../../hooks/useSiteSettings.js';
+import { uploadUrl } from '../../utils/uploads.js';
 
 export default function Footer() {
   const site = useSiteSettings();
-  const logo = site.logo || '/assets/logo/logo.png';
+  const logo = uploadUrl(site.logo) || '/assets/logo/logo.png';
   const siteName = site.site_name || 'HotelBooking';
   const email = site.contact_email || 'support@hotelbooking.vn';
   const phone = site.contact_phone || '+84 28 3822 1234';

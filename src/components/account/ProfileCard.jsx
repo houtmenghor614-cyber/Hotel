@@ -1,6 +1,7 @@
 import Icon from '../common/Icon.jsx';
 import Img from '../common/Img.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
+import { uploadUrl } from '../../utils/uploads.js';
 import userApi from '../../api/userApi.js';
 
 export default function ProfileCard({ onUpdated }) {
@@ -31,7 +32,7 @@ export default function ProfileCard({ onUpdated }) {
           <div className="flex items-end gap-4">
             {user.avatar ? (
               <img
-                src={user.avatar}
+                src={uploadUrl(user.avatar)}
                 alt={user.full_name}
                 className="h-20 w-20 rounded-full border-4 border-white object-cover shadow"
                 onError={(e) => {

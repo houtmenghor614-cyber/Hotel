@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import Button from '../common/Button.jsx';
 import Icon from '../common/Icon.jsx';
 import { useSiteSettings } from '../../hooks/useSiteSettings.js';
+import { uploadUrl } from '../../utils/uploads.js';
 
 export default function HeroSection() {
   const site = useSiteSettings();
-  const banner = site.banner || '/assets/banners/hero-1.jpg';
+  const banner = uploadUrl(site.banner) || '/assets/banners/hero-1.jpg';
   const siteName = site.site_name || 'HotelBooking';
 
   return (

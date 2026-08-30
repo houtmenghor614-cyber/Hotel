@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import Icon from '../common/Icon.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
+import { uploadUrl } from '../../utils/uploads.js';
 
 const LINKS = [
   { to: '/account/profile', label: 'My Profile', icon: 'user' },
@@ -19,7 +20,7 @@ export default function AccountSidebar() {
       <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
         {user?.avatar ? (
           <img
-            src={user.avatar}
+            src={uploadUrl(user.avatar)}
             alt={user.full_name}
             className="h-11 w-11 rounded-full object-cover"
             onError={(e) => {
