@@ -1,0 +1,18 @@
+# Dependencies & build output
+node_modules/
+dist/
+*.local
+
+# Environment (use VITE_API_URL on Render instead)
+.env
+.env.local
+
+# Test artifacts (generated)
+test_settings_bundle.mjs
+tailwind_cdn.js
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
