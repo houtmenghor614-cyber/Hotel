@@ -65,16 +65,20 @@ frontend_user/
 └── postcss.config.js      # kept for a future Tailwind build pipeline
 ```
 
-## Deploy to Render (Static Site)
+## Deploy (Vercel — currently live)
 
-1. Push this folder to its own GitHub repo (see `../PUBLISH_GUIDE.md`).
-2. Render → New → **Static Site** → pick the repo.
-3. Settings:
-   - Build command: `npm install && npm run build`
-   - Publish directory: `dist`
-   - Environment variable: `VITE_API_URL = https://<your-backend>.onrender.com/api/v1`
-4. Deploy. All API calls and uploaded images (`/uploads/...`) automatically
-   point at the deployed backend.
+The repo includes `vercel.json` which proxies to the deployed backend:
+
+- `/api/*` → `https://backend-hotel1.onrender.com/api/*`
+- `/uploads/*` → `https://backend-hotel1.onrender.com/uploads/*`
+- all other routes → `/index.html` (SPA routing)
+
+1. Push to your GitHub repo and import it in Vercel (framework: **Vite**,
+   build `npm run build`, output `dist`).
+2. No env vars needed — the proxy makes API + image URLs work automatically.
+
+> To point at a different backend, edit the two `destination` URLs in
+> `vercel.json`, or set `VITE_API_URL` in the Vercel project settings instead.
 
 ## Notes
 
