@@ -65,6 +65,17 @@ frontend_user/
 └── postcss.config.js      # kept for a future Tailwind build pipeline
 ```
 
+## Deploy to Render (Static Site)
+
+1. Push this folder to its own GitHub repo (see `../PUBLISH_GUIDE.md`).
+2. Render → New → **Static Site** → pick the repo.
+3. Settings:
+   - Build command: `npm install && npm run build`
+   - Publish directory: `dist`
+   - Environment variable: `VITE_API_URL = https://<your-backend>.onrender.com/api/v1`
+4. Deploy. All API calls and uploaded images (`/uploads/...`) automatically
+   point at the deployed backend.
+
 ## Notes
 
 - `public/assets/**` images are **generated gradient placeholders**.
